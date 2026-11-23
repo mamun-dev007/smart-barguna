@@ -1,17 +1,22 @@
-import { Route, Routes } from "react-router";
+import { Link, Route, Routes } from "react-router";
+import BottomNavigation from "./components/BottomNavigation";
 import Home from "./pages/Home";
+import News from "./pages/News";
+import Services from "./pages/Services";
+import Explore from "./pages/Explore";
+import Profile from "./pages/Profile";
 
 function NotFound() {
   return (
     <main className="sb-container flex min-h-screen items-center justify-center py-8">
       <p className="sb-card w-full max-w-md text-center text-sm leading-relaxed text-muted sm:text-base">
         Page not found.{" "}
-        <a
+        <Link
           className="inline-flex min-h-11 items-center font-semibold text-brand-green underline underline-offset-2"
-          href="/"
+          to="/"
         >
           Go home
-        </a>
+        </Link>
       </p>
     </main>
   );
@@ -19,9 +24,16 @@ function NotFound() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <div className="sb-app-content min-h-screen">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <BottomNavigation />
+    </div>
   );
 }

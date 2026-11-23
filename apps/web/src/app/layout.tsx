@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import AppShell from "../components/AppShell";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,7 +13,9 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-page font-sans text-ink antialiased">{children}</body>
+      <body className="min-h-screen bg-page font-sans text-ink antialiased">
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }
