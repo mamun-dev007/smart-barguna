@@ -97,7 +97,7 @@
 
   body {
     margin: 0;
-    min-width: 320px;
+    overflow-wrap: break-word;
     background-color: var(--sb-color-page);
     color: var(--sb-color-text);
     font-family: var(--sb-font-sans);
