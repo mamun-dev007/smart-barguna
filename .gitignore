@@ -9,9 +9,17 @@ dist/
 build/
 .next/
 out/
+coverage/
+*.lcov
+
+# Environment overrides
+.env.local
+.env.*.local
 
 # Android / Gradle
 android/app/build/
+android/build/
+android/captures/
 android/.gradle/
 android/local.properties
 *.iml
@@ -21,3 +29,12 @@ android/local.properties
 
 # TypeScript build info
 *.tsbuildinfo
+
+# OS / editor temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
