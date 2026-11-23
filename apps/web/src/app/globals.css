@@ -65,13 +65,6 @@
   --font-bangla: var(--sb-font-bangla);
   --font-english: var(--sb-font-english);
 
-  --spacing-xs: var(--sb-space-2);
-  --spacing-sm: var(--sb-space-3);
-  --spacing-md: var(--sb-space-4);
-  --spacing-lg: var(--sb-space-6);
-  --spacing-xl: var(--sb-space-8);
-  --spacing-2xl: var(--sb-space-12);
-
   --radius-button: var(--sb-radius-md);
   --radius-input: var(--sb-radius-md);
   --radius-card: var(--sb-radius-lg);
