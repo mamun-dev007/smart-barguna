@@ -1,0 +1,23 @@
+node_modules
+
+# Environment
+.env
+.env.*
+
+# Build output
+dist/
+build/
+.next/
+out/
+
+# Android / Gradle
+android/app/build/
+android/.gradle/
+android/local.properties
+*.iml
+
+# Logs
+*.log
+
+# TypeScript build info
+*.tsbuildinfo
