@@ -1,16 +1,21 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-8">
-      <div className="max-w-xl space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+    <main className="sb-container flex min-h-screen items-center justify-center py-8 sm:py-12">
+      <section className="sb-card w-full max-w-xl text-center">
+        <p className="text-xs font-semibold uppercase tracking-widest text-brand-green">
+          Smart Barguna
+        </p>
+        <h1 className="mt-2 text-2xl font-bold tracking-tight text-brand-navy sm:text-3xl">
           Welcome to Next.js
         </h1>
-        <p className="text-base text-gray-600">
+        <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
           This is a starter page. Edit{" "}
-          <code className="rounded bg-gray-200 px-1 py-0.5">src/app/page.tsx</code>{" "}
+          <code className="rounded-sm bg-page px-1 py-0.5 text-xs text-ink">
+            src/app/page.tsx
+          </code>{" "}
           to get started.
         </p>
-      </div>
+      </section>
     </main>
   );
 }
