@@ -1,5 +1,6 @@
 import { Link, Route, Routes } from "react-router";
 import BottomNavigation from "./components/BottomNavigation";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import Services from "./pages/Services";
@@ -24,15 +25,18 @@ function NotFound() {
 
 export default function App() {
   return (
-    <div className="sb-app-content min-h-screen">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <div className="sb-app-root min-h-screen">
+      <Header />
+      <div className="sb-app-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <BottomNavigation />
     </div>
   );
