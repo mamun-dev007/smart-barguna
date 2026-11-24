@@ -15,7 +15,6 @@ import { filterNavItems } from "./navigation";
 import {
   LanguageMenu,
   NotificationsMenu,
-  ProfileMenu,
   SAMPLE_NOTIFICATIONS,
   SearchSuggestions,
   type Language,
@@ -28,7 +27,7 @@ type HeaderProps = {
   onOpenDrawer: () => void;
 };
 
-type OpenMenu = "language" | "notifications" | "profile" | null;
+type OpenMenu = "language" | "notifications" | null;
 
 export default function Header({
   sidebarCollapsed,
@@ -40,7 +39,6 @@ export default function Header({
   const [openMenu, setOpenMenu] = useState<OpenMenu>(null);
   const [language, setLanguage] = useState<Language>("en");
   const [notificationsRead, setNotificationsRead] = useState(false);
-  const [guest, setGuest] = useState(true);
   const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -171,30 +169,6 @@ export default function Header({
               notifications={SAMPLE_NOTIFICATIONS}
               read={notificationsRead}
               onReadAll={() => setNotificationsRead(true)}
-            />
-          </div>
-
-          <div className="sb-header-popover-wrap" id="sb-profile-menu">
-            <button
-              type="button"
-              className="sb-header-profile"
-              onClick={() => toggleMenu("profile")}
-              aria-expanded={openMenu === "profile"}
-              aria-haspopup="menu"
-              aria-label={guest ? "Guest profile menu" : "User profile menu"}
-            >
-              <span className="sb-avatar" aria-hidden="true">
-                {guest ? "G" : "U"}
-              </span>
-              <span className="sb-header-profile-label">
-                {guest ? "Guest" : "Demo user"}
-              </span>
-            </button>
-            <ProfileMenu
-              open={openMenu === "profile"}
-              guest={guest}
-              onLogin={() => setGuest(false)}
-              onLogout={() => setGuest(true)}
             />
           </div>
         </div>

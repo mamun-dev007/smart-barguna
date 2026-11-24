@@ -505,8 +505,7 @@
   }
 
   .sb-header-icon,
-  .sb-header-action,
-  .sb-header-profile {
+  .sb-header-action {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -525,8 +524,7 @@
   }
 
   .sb-header-icon:hover,
-  .sb-header-action:hover,
-  .sb-header-profile:hover {
+  .sb-header-action:hover {
     background-color: rgb(23 107 80 / 0.08);
     color: var(--sb-color-green);
   }
@@ -535,28 +533,6 @@
     gap: var(--sb-space-2);
     padding: 0 var(--sb-space-3);
     font-size: var(--sb-text-sm);
-  }
-
-  .sb-header-profile {
-    gap: var(--sb-space-2);
-    padding: 0 var(--sb-space-2);
-  }
-
-  .sb-header-profile-label {
-    font-size: var(--sb-text-sm);
-  }
-
-  .sb-avatar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: var(--sb-radius-full);
-    background-color: var(--sb-color-green);
-    color: #ffffff;
-    font-size: var(--sb-text-xs);
-    font-weight: 700;
   }
 
   .sb-unread-dot {
@@ -735,7 +711,6 @@
   }
 
   @media (max-width: 767px) {
-    .sb-header-profile-label,
     .sb-header-action span {
       display: none;
     }

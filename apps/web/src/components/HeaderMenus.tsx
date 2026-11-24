@@ -79,40 +79,6 @@ export function NotificationsMenu({
   );
 }
 
-export function ProfileMenu({
-  open,
-  guest,
-  onLogin,
-  onLogout,
-}: {
-  open: boolean;
-  guest: boolean;
-  onLogin: () => void;
-  onLogout: () => void;
-}) {
-  if (!open) return null;
-  return (
-    <div className="sb-popover sb-profile-menu" role="menu" aria-label="Profile">
-      {guest ? (
-        <>
-          <p className="sb-popover-heading">Guest user</p>
-          <button type="button" className="sb-popover-action" onClick={onLogin}>
-            Login (demo)
-          </button>
-        </>
-      ) : (
-        <>
-          <p className="sb-popover-heading">Demo user</p>
-          <p className="sb-popover-note">Signed in locally — no real account.</p>
-          <button type="button" className="sb-popover-action" onClick={onLogout}>
-            Logout
-          </button>
-        </>
-      )}
-    </div>
-  );
-}
-
 export function SearchSuggestions({
   query,
   items,
