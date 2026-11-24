@@ -52,13 +52,10 @@
   --sb-container-wide: 84rem;
   --sb-touch-target: 2.75rem;
 
-  --sb-safe-area-top: max(
-    env(safe-area-inset-top, 0px),
-    var(--safe-area-inset-top, 0px)
-  );
-  --sb-safe-area-bottom: max(
-    env(safe-area-inset-bottom, 0px),
-    var(--safe-area-inset-bottom, 0px)
+  --sb-safe-area-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  --sb-safe-area-bottom: var(
+    --safe-area-inset-bottom,
+    env(safe-area-inset-bottom, 0px)
   );
 }
 
