@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "cap:sync": "npm run build && cd ../.. && npx cap sync android",
+    "cap:open:android": "cd ../.. && npx cap open android"
   },
   "dependencies": {
     "lucide-react": "^1.78.0",

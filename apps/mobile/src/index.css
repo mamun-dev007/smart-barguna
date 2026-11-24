@@ -51,6 +51,15 @@
   --sb-container-content: 72rem;
   --sb-container-wide: 84rem;
   --sb-touch-target: 2.75rem;
+
+  --sb-safe-area-top: max(
+    env(safe-area-inset-top, 0px),
+    var(--safe-area-inset-top, 0px)
+  );
+  --sb-safe-area-bottom: max(
+    env(safe-area-inset-bottom, 0px),
+    var(--safe-area-inset-bottom, 0px)
+  );
 }
 
 @theme inline {
@@ -245,7 +254,7 @@
 
 @layer components {
   .sb-app-content {
-    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(5rem + var(--sb-safe-area-bottom));
   }
 
   .sb-bottom-nav {
@@ -256,7 +265,7 @@
     width: 100%;
     max-width: 34rem;
     transform: translateX(-50%);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-bottom: var(--sb-safe-area-bottom);
     border-top: 1px solid rgb(20 43 74 / 0.1);
     background-color: var(--sb-color-card);
     box-shadow: 0 -2px 10px rgb(20 43 74 / 0.06);
@@ -268,7 +277,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    height: env(safe-area-inset-bottom, 0px);
+    height: var(--sb-safe-area-bottom);
     background-color: var(--sb-color-navy);
     pointer-events: none;
   }
@@ -323,7 +332,7 @@
     position: sticky;
     top: 0;
     z-index: 45;
-    padding-top: env(safe-area-inset-top, 0px);
+    padding-top: var(--sb-safe-area-top);
     border-bottom: 1px solid rgb(20 43 74 / 0.08);
     background-color: var(--sb-color-card);
     transition: transform 250ms ease-in-out;
