@@ -11,22 +11,22 @@ export default function Header() {
 
   return (
     <>
-      <header className="sb-app-header border-b border-white/10 bg-brand-navy text-white">
-        <div className="sb-container sb-app-header-inner">
-          <div className="sb-app-header-brand text-white " aria-label="Smart Barguna">
+      <header className="sb-app-header">
+        <div className="sb-app-header-inner">
+          <div className="sb-app-header-brand" aria-label="Smart Barguna">
             <img
               src={logo}
               alt=""
-              className="sb-brand-logo h-10 w-10 rounded-full"
+              className="sb-brand-logo"
               aria-hidden="true"
             />
-            <span className="sb-brand-text text-2xl text-white">Smart Barguna</span>
+            <span className="sb-brand-text">Smart Barguna</span>
           </div>
 
           <div className="sb-app-header-actions">
             <button
               type="button"
-              className="sb-app-header-icon text-white hover:bg-white/10 hover:text-white"
+              className="sb-app-header-icon"
               onClick={() => setSearchOpen((value) => !value)}
               aria-expanded={searchOpen}
               aria-controls="sb-mobile-search-panel"
@@ -36,7 +36,7 @@ export default function Header() {
             </button>
             <button
               type="button"
-              className="sb-app-header-icon text-white hover:bg-white/10 hover:text-white"
+              className="sb-app-header-icon"
               onClick={() => setDrawerOpen(true)}
               aria-expanded={drawerOpen}
               aria-controls="sb-navigation-drawer"
