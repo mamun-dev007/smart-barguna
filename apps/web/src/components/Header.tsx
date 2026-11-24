@@ -24,8 +24,8 @@ import {
 type HeaderProps = {
   sidebarCollapsed: boolean;
   onToggleSidebar: () => void;
-  mobileMenuOpen: boolean;
-  onToggleMobileMenu: () => void;
+  drawerOpen: boolean;
+  onOpenDrawer: () => void;
 };
 
 type OpenMenu = "language" | "notifications" | "profile" | null;
@@ -33,8 +33,8 @@ type OpenMenu = "language" | "notifications" | "profile" | null;
 export default function Header({
   sidebarCollapsed,
   onToggleSidebar,
-  mobileMenuOpen,
-  onToggleMobileMenu,
+  drawerOpen,
+  onOpenDrawer,
 }: HeaderProps) {
   const [query, setQuery] = useState("");
   const [openMenu, setOpenMenu] = useState<OpenMenu>(null);
@@ -71,9 +71,10 @@ export default function Header({
       <div className="sb-header-inner sb-container">
         <button
           type="button"
-          className="sb-header-icon sb-header-desktop-only"
+          className="sb-header-icon sb-collapse-toggle"
           onClick={onToggleSidebar}
           aria-expanded={!sidebarCollapsed}
+          aria-controls="sb-sidebar-nav"
           aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {sidebarCollapsed ? (
@@ -83,16 +84,17 @@ export default function Header({
           )}
         </button>
 
-        <button
-          type="button"
-          className="sb-header-icon sb-header-mobile-only"
-          onClick={onToggleMobileMenu}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="sb-mobile-drawer"
-          aria-label="Toggle navigation menu"
-        >
-          <Menu className="sb-nav-icon" aria-hidden="true" />
-        </button>
+        {drawerOpen ? null : (
+          <button
+            type="button"
+            className="sb-header-icon sb-menu-toggle"
+            onClick={onOpenDrawer}
+            aria-controls="sb-mobile-drawer"
+            aria-label="Open navigation menu"
+          >
+            <Menu className="sb-nav-icon" aria-hidden="true" />
+          </button>
+        )}
 
         <Link href="/" className="sb-header-brand" aria-label="Smart Barguna home">
           <span className="sb-brand-mark" aria-hidden="true">

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "./navigation";
 
 type NavLinksProps = {
-  variant?: "sidebar" | "mobile" | "drawer";
+  variant?: "sidebar" | "drawer";
   collapsed?: boolean;
   onNavigate?: () => void;
 };
@@ -16,18 +16,9 @@ export default function NavLinks({
   onNavigate,
 }: NavLinksProps) {
   const pathname = usePathname();
-  const className =
-    variant === "sidebar"
-      ? "sb-nav-link"
-      : variant === "mobile"
-        ? "sb-mobile-nav-link"
-        : "sb-drawer-link";
-  const listClassName =
-    variant === "sidebar"
-      ? "sb-nav-list"
-      : variant === "mobile"
-        ? "sb-mobile-nav"
-        : "sb-drawer-nav";
+  const isSidebar = variant === "sidebar";
+  const className = isSidebar ? "sb-nav-link" : "sb-drawer-link";
+  const listClassName = isSidebar ? "sb-nav-list" : "sb-drawer-nav";
 
   return (
     <ul className={listClassName}>
@@ -40,11 +31,16 @@ export default function NavLinks({
               className={className}
               data-active={active ? "true" : undefined}
               aria-current={active ? "page" : undefined}
-              title={variant === "sidebar" && collapsed ? label : undefined}
+              aria-label={isSidebar && collapsed ? label : undefined}
               onClick={onNavigate}
             >
               <Icon className="sb-nav-icon" aria-hidden="true" />
-              {(!collapsed || variant !== "sidebar") && <span>{label}</span>}
+              <span className={isSidebar ? "sb-nav-label" : "sb-drawer-label"}>
+                {label}
+              </span>
+              <span className="sb-nav-tooltip" aria-hidden="true">
+                {label}
+              </span>
             </Link>
           </li>
         );
