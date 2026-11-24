@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Bell, Menu, Search } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import {
   MenuPanel,
-  NotificationsPanel,
   SearchPanel,
 } from "./HeaderPanels";
 import logo from "../assets/logo.png";
@@ -41,17 +40,6 @@ export default function Header() {
           <button
             type="button"
             className="sb-app-header-icon"
-            onClick={() => toggle("notifications")}
-            aria-expanded={panel === "notifications"}
-            aria-controls="sb-mobile-notifications-panel"
-            aria-label="Notifications"
-          >
-            <Bell className="sb-nav-icon" aria-hidden="true" />
-            {read ? null : <span className="sb-unread-dot" aria-hidden="true" />}
-          </button>
-          <button
-            type="button"
-            className="sb-app-header-icon"
             onClick={() => toggle("menu")}
             aria-expanded={panel === "menu"}
             aria-controls="sb-mobile-menu-panel"
@@ -66,11 +54,6 @@ export default function Header() {
         open={panel === "search"}
         query={query}
         onQueryChange={setQuery}
-      />
-      <NotificationsPanel
-        open={panel === "notifications"}
-        read={read}
-        onReadAll={() => setRead(true)}
       />
       <MenuPanel open={panel === "menu"} onClose={() => setPanel(null)} />
     </header>

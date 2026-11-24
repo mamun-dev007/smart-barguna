@@ -25,7 +25,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <div className="sb-app-root min-h-screen">
+    <div className="sb-app-root min-h-screen overflow-x-hidden">
       <Header />
       <div className="sb-app-content">
         <Routes>

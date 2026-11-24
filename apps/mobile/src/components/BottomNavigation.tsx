@@ -4,7 +4,7 @@ import {
   Home,
   LayoutGrid,
   Newspaper,
-  User,
+  Timer,
   type LucideIcon,
 } from "lucide-react";
 
@@ -17,7 +17,7 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/news", label: "News", icon: Newspaper },
-  { to: "/profile", label: "Profile", icon: User },
+  { to: "/Salad", label: "Salad", icon: Timer },
   { to: "/services", label: "Services", icon: LayoutGrid },
   { to: "/explore", label: "Explore", icon: Compass },
 ];
