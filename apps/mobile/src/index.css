@@ -326,6 +326,23 @@
     padding-top: env(safe-area-inset-top, 0px);
     border-bottom: 1px solid rgb(20 43 74 / 0.08);
     background-color: var(--sb-color-card);
+    transition: transform 250ms ease-in-out;
+  }
+
+  .sb-app-header--hidden {
+    transform: translateY(-100%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sb-app-header {
+      will-change: transform;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sb-app-header {
+      transition: none;
+    }
   }
 
   .sb-app-header-inner {
