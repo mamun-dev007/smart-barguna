@@ -1,61 +1,60 @@
 import { useState } from "react";
 import { Menu, Search } from "lucide-react";
-import {
-  MenuPanel,
-  SearchPanel,
-} from "./HeaderPanels";
+import { SearchPanel } from "./HeaderPanels";
+import NavigationDrawer from "./NavigationDrawer";
 import logo from "../assets/logo.png";
 
-type Panel = "search" | "notifications" | "menu" | null;
-
 export default function Header() {
-  const [panel, setPanel] = useState<Panel>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [guest, setGuest] = useState(true);
-  const [read, setRead] = useState(false);
-
-  function toggle(next: Exclude<Panel, null>) {
-    setPanel((current) => (current === next ? null : next));
-  }
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <header className="sb-app-header">
-      <div className="sb-container sb-app-header-inner">
-        <div className="sb-app-header-brand" aria-label="Smart Barguna">
-          <img src={logo} alt="" className="sb-brand-logo h-10 w-10" aria-hidden="true" />
-          <span className="sb-brand-text text-2xl ">Smart Barguna</span>
+    <>
+      <header className="sb-app-header border-b border-white/10 bg-brand-navy text-white">
+        <div className="sb-container sb-app-header-inner">
+          <div className="sb-app-header-brand text-white " aria-label="Smart Barguna">
+            <img
+              src={logo}
+              alt=""
+              className="sb-brand-logo h-10 w-10 rounded-full"
+              aria-hidden="true"
+            />
+            <span className="sb-brand-text text-2xl text-white">Smart Barguna</span>
+          </div>
+
+          <div className="sb-app-header-actions">
+            <button
+              type="button"
+              className="sb-app-header-icon text-white hover:bg-white/10 hover:text-white"
+              onClick={() => setSearchOpen((value) => !value)}
+              aria-expanded={searchOpen}
+              aria-controls="sb-mobile-search-panel"
+              aria-label="Search"
+            >
+              <Search className="sb-nav-icon" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className="sb-app-header-icon text-white hover:bg-white/10 hover:text-white"
+              onClick={() => setDrawerOpen(true)}
+              aria-expanded={drawerOpen}
+              aria-controls="sb-navigation-drawer"
+              aria-label="Open navigation menu"
+            >
+              <Menu className="sb-nav-icon" aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
-        <div className="sb-app-header-actions">
-          <button
-            type="button"
-            className="sb-app-header-icon"
-            onClick={() => toggle("search")}
-            aria-expanded={panel === "search"}
-            aria-controls="sb-mobile-search-panel"
-            aria-label="Search"
-          >
-            <Search className="sb-nav-icon" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            className="sb-app-header-icon"
-            onClick={() => toggle("menu")}
-            aria-expanded={panel === "menu"}
-            aria-controls="sb-mobile-menu-panel"
-            aria-label="Menu"
-          >
-            <Menu className="sb-nav-icon" aria-hidden="true" />
-          </button>
-        </div>
-      </div>
+        <SearchPanel
+          open={searchOpen}
+          query={query}
+          onQueryChange={setQuery}
+        />
+      </header>
 
-      <SearchPanel
-        open={panel === "search"}
-        query={query}
-        onQueryChange={setQuery}
-      />
-      <MenuPanel open={panel === "menu"} onClose={() => setPanel(null)} />
-    </header>
+      <NavigationDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+    </>
   );
 }

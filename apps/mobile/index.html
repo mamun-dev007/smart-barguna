@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base id="app-base" href="./" />
+    <script>
+      if (window.location.protocol !== "file:") {
+        document.getElementById("app-base").setAttribute("href", "/");
+      }
+    </script>
     <title>Smart Barguna Mobile App</title>
   </head>
   <body class="overflow-x-hidden">
