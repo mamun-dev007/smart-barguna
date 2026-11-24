@@ -7,6 +7,7 @@ const config: CapacitorConfig = {
   plugins: {
     SystemBars: {
       style: 'DARK',
+      hidden: false,
       insetsHandling: 'css',
       initialViewportFitValueHint: 'cover',
     },
