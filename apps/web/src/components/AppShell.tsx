@@ -54,9 +54,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
         aria-label="Main navigation"
       >
         <Link href="/" className="sb-sidebar-brand" aria-label="Smart Barguna home">
-          <span className="sb-brand-mark" aria-hidden="true">
-            SB
-          </span>
+          <img src="/logo.png" alt="" className="sb-brand-logo" aria-hidden="true" />
           <span className="sb-brand-text">Smart Barguna</span>
         </Link>
 
@@ -86,9 +84,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
         inert={!drawerOpen}
       >
         <div className="sb-drawer-head">
-          <span className="sb-brand-mark" aria-hidden="true">
-            SB
-          </span>
+          <img src="/logo.png" alt="" className="sb-brand-logo" aria-hidden="true" />
           <span className="sb-brand-text">Smart Barguna</span>
           <button
             type="button"

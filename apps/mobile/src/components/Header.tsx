@@ -5,6 +5,7 @@ import {
   ProfilePanel,
   SearchPanel,
 } from "./HeaderPanels";
+import logo from "../assets/logo.png";
 
 type Panel = "search" | "notifications" | "profile" | null;
 
@@ -22,9 +23,7 @@ export default function Header() {
     <header className="sb-app-header">
       <div className="sb-container sb-app-header-inner">
         <div className="sb-app-header-brand" aria-label="Smart Barguna">
-          <span className="sb-brand-mark" aria-hidden="true">
-            SB
-          </span>
+          <img src={logo} alt="" className="sb-brand-logo" aria-hidden="true" />
           <span className="sb-brand-text">Smart Barguna</span>
         </div>
 

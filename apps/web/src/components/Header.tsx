@@ -95,9 +95,7 @@ export default function Header({
         )}
 
         <Link href="/" className="sb-header-brand" aria-label="Smart Barguna home">
-          <span className="sb-brand-mark" aria-hidden="true">
-            SB
-          </span>
+          <img src="/logo.png" alt="" className="sb-brand-logo" aria-hidden="true" />
           <span className="sb-brand-text">Smart Barguna</span>
         </Link>
 

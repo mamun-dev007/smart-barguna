@@ -333,9 +333,19 @@
     font-weight: 700;
   }
 
+  .sb-brand-logo {
+    display: block;
+    flex: 0 0 auto;
+    width: 3rem;
+    height: 2.25rem;
+    border-radius: var(--sb-radius-sm);
+    background-color: #ffffff;
+    object-fit: contain;
+  }
+
   .sb-app-header-brand .sb-brand-text {
     overflow: hidden;
-    font-size: var(--sb-text-sm);
+    font-size: 0.9375rem;
     text-overflow: ellipsis;
     white-space: nowrap;
   }

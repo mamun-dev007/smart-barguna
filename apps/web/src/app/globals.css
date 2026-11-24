@@ -310,18 +310,14 @@
     display: none;
   }
 
-  .sb-brand-mark {
-    display: inline-flex;
+  .sb-brand-logo {
+    display: block;
     flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
+    width: 2.75rem;
     height: 2rem;
-    border-radius: var(--sb-radius-md);
-    background-color: var(--sb-color-green);
-    color: #ffffff;
-    font-size: var(--sb-text-xs);
-    font-weight: 700;
+    border-radius: var(--sb-radius-sm);
+    background-color: #ffffff;
+    object-fit: contain;
   }
 
   .sb-brand-text {
