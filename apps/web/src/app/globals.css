@@ -504,6 +504,12 @@
     font-size: var(--sb-text-sm);
   }
 
+  @media (min-width: 1024px) {
+    .sb-header-brand {
+      display: none;
+    }
+  }
+
   .sb-header-icon,
   .sb-header-action {
     display: inline-flex;
