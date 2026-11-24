@@ -93,6 +93,7 @@
   html {
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
+    background-color: var(--sb-color-navy);
   }
 
   body {
@@ -259,6 +260,17 @@
     border-top: 1px solid rgb(20 43 74 / 0.1);
     background-color: var(--sb-color-card);
     box-shadow: 0 -2px 10px rgb(20 43 74 / 0.06);
+  }
+
+  .sb-bottom-nav::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: env(safe-area-inset-bottom, 0px);
+    background-color: var(--sb-color-navy);
+    pointer-events: none;
   }
 
   .sb-bottom-nav-list {
