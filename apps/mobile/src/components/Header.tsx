@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Bell, Search, UserRound } from "lucide-react";
+import { Bell, Menu, Search } from "lucide-react";
 import {
+  MenuPanel,
   NotificationsPanel,
-  ProfilePanel,
   SearchPanel,
 } from "./HeaderPanels";
 import logo from "../assets/logo.png";
 
-type Panel = "search" | "notifications" | "profile" | null;
+type Panel = "search" | "notifications" | "menu" | null;
 
 export default function Header() {
   const [panel, setPanel] = useState<Panel>(null);
@@ -23,8 +23,8 @@ export default function Header() {
     <header className="sb-app-header">
       <div className="sb-container sb-app-header-inner">
         <div className="sb-app-header-brand" aria-label="Smart Barguna">
-          <img src={logo} alt="" className="sb-brand-logo" aria-hidden="true" />
-          <span className="sb-brand-text">Smart Barguna</span>
+          <img src={logo} alt="" className="sb-brand-logo h-10 w-10" aria-hidden="true" />
+          <span className="sb-brand-text text-2xl ">Smart Barguna</span>
         </div>
 
         <div className="sb-app-header-actions">
@@ -52,12 +52,12 @@ export default function Header() {
           <button
             type="button"
             className="sb-app-header-icon"
-            onClick={() => toggle("profile")}
-            aria-expanded={panel === "profile"}
-            aria-controls="sb-mobile-profile-panel"
-            aria-label={guest ? "Guest profile" : "User profile"}
+            onClick={() => toggle("menu")}
+            aria-expanded={panel === "menu"}
+            aria-controls="sb-mobile-menu-panel"
+            aria-label="Menu"
           >
-            <UserRound className="sb-nav-icon" aria-hidden="true" />
+            <Menu className="sb-nav-icon" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -72,12 +72,7 @@ export default function Header() {
         read={read}
         onReadAll={() => setRead(true)}
       />
-      <ProfilePanel
-        open={panel === "profile"}
-        guest={guest}
-        onLogin={() => setGuest(false)}
-        onLogout={() => setGuest(true)}
-      />
+      <MenuPanel open={panel === "menu"} onClose={() => setPanel(null)} />
     </header>
   );
 }

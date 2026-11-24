@@ -17,9 +17,9 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/news", label: "News", icon: Newspaper },
+  { to: "/profile", label: "Profile", icon: User },
   { to: "/services", label: "Services", icon: LayoutGrid },
   { to: "/explore", label: "Explore", icon: Compass },
-  { to: "/profile", label: "Profile", icon: User },
 ];
 
 export default function BottomNavigation() {
