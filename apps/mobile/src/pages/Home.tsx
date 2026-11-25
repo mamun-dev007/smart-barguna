@@ -1,23 +1,33 @@
-import { Smartphone } from "lucide-react";
+import {
+  ADVERTISEMENTS,
+  BLOOD_GROUPS,
+  EMERGENCY_NUMBERS,
+  EMERGENCY_SERVICES,
+  JOB_NEWS,
+  MANUAL_SERVICES,
+  NOTICES,
+  TOURISM_PLACES,
+} from "../data/home";
+import AdvertisementSection from "../components/home/AdvertisementSection";
+import BloodInfoSection from "../components/home/BloodInfoSection";
+import EmergencyNumbersSection from "../components/home/EmergencyNumbersSection";
+import EmergencyServicesSection from "../components/home/EmergencyServicesSection";
+import JobNewsSection from "../components/home/JobNewsSection";
+import ManualServicesSection from "../components/home/ManualServicesSection";
+import NoticeBar from "../components/home/NoticeBar";
+import TourismPlacesSection from "../components/home/TourismPlacesSection";
 
 export default function Home() {
   return (
-    <div className="sb-container flex min-h-screen items-center justify-center py-8 sm:py-12">
-      <main className="sb-card w-full max-w-md sm:max-w-xl">
-        <div className="flex items-center gap-3">
-          <Smartphone
-            className="h-7 w-7 shrink-0 text-brand-green sm:h-8 sm:w-8"
-            aria-hidden="true"
-          />
-          <h1 className="text-xl font-bold leading-tight text-brand-navy sm:text-2xl lg:text-3xl">
-            Smart Barguna Mobile App
-          </h1>
-        </div>
-        <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-          Starter screen for the mobile application. Responsive from 320px phones
-          through tablets.
-        </p>
-      </main>
-    </div>
+    <main className="sb-container w-full py-4 sm:py-6">
+      <NoticeBar notices={NOTICES} />
+      <AdvertisementSection ads={ADVERTISEMENTS} />
+      <BloodInfoSection groups={BLOOD_GROUPS} />
+      <EmergencyNumbersSection numbers={EMERGENCY_NUMBERS} />
+      <EmergencyServicesSection services={EMERGENCY_SERVICES} />
+      <ManualServicesSection services={MANUAL_SERVICES} />
+      <TourismPlacesSection places={TOURISM_PLACES} />
+      <JobNewsSection jobs={JOB_NEWS} />
+    </main>
   );
 }
